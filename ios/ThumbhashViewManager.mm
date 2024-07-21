@@ -1,23 +1,9 @@
+#import "ThumbhashBridge.h"
 #import <React/RCTViewManager.h>
-#import <React/RCTUIManager.h>
-#import "RCTBridge.h"
-#import "Utils.h"
 
-@interface ThumbhashViewManager : RCTViewManager
-@end
+@interface RCT_EXTERN_REMAP_MODULE (ThumbhashView, ThumbhashViewManager,
+                                    RCTViewManager)
 
-@implementation ThumbhashViewManager
-
-RCT_EXPORT_MODULE(ThumbhashView)
-
-- (UIView *)view
-{
-  return [[UIView alloc] init];
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(color, NSString, UIView)
-{
-  [view setBackgroundColor: [Utils hexStringToColor:json]];
-}
+RCT_EXPORT_VIEW_PROPERTY(thumbhash, NSString);
 
 @end

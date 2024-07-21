@@ -4,7 +4,11 @@ import { ThumbhashView } from 'react-native-thumbhash';
 export default function App() {
   return (
     <View style={styles.container}>
-      <ThumbhashView color="#32a852" style={styles.box} />
+      <ThumbhashView
+        thumbhash="3OcRJYB4d3h/iIeHeEh3eIhw+j2w"
+        // thumbhash="3PcNNYSFeXh/d3eld0iHZoZgVwh2"
+        style={styles.box}
+      />
     </View>
   );
 }
@@ -16,8 +20,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 60,
-    height: 60,
+    width: 200,
+    height: 200,
     marginVertical: 20,
   },
 });
