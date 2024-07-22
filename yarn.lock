@@ -2369,6 +2369,51 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@luckypear/react-native-thumbhash-example@workspace:example":
+  version: 0.0.0-use.local
+  resolution: "@luckypear/react-native-thumbhash-example@workspace:example"
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/preset-env": ^7.20.0
+    "@babel/runtime": ^7.20.0
+    "@react-native/babel-preset": 0.74.85
+    "@react-native/metro-config": 0.74.85
+    "@react-native/typescript-config": 0.74.85
+    babel-plugin-module-resolver: ^5.0.0
+    react: 18.2.0
+    react-native: 0.74.3
+  languageName: unknown
+  linkType: soft
+
+"@luckypear/react-native-thumbhash@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@luckypear/react-native-thumbhash@workspace:."
+  dependencies:
+    "@commitlint/config-conventional": ^17.0.2
+    "@evilmartians/lefthook": ^1.5.0
+    "@react-native/eslint-config": ^0.73.1
+    "@release-it/conventional-changelog": ^5.0.0
+    "@types/jest": ^29.5.5
+    "@types/react": ^18.2.44
+    commitlint: ^17.0.2
+    del-cli: ^5.1.0
+    eslint: ^8.51.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-prettier: ^5.0.1
+    jest: ^29.7.0
+    prettier: ^3.0.3
+    react: 18.2.0
+    react-native: 0.74.3
+    react-native-builder-bob: ^0.26.0
+    release-it: ^15.0.0
+    turbo: ^1.10.7
+    typescript: ^5.2.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  languageName: unknown
+  linkType: soft
+
 "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1":
   version: 5.1.1-v1
   resolution: "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1"
@@ -10864,51 +10909,6 @@ __metadata:
   checksum: 60b720ce74b5571ec293a10d00b26dc923d62a0c07222548499b90878e72be3ddd77fb33b62144ab0a0f405049a3747376742b9499cb73f9e851da0ce0e17204
   languageName: node
   linkType: hard
-
-"react-native-thumbhash-example@workspace:example":
-  version: 0.0.0-use.local
-  resolution: "react-native-thumbhash-example@workspace:example"
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@babel/preset-env": ^7.20.0
-    "@babel/runtime": ^7.20.0
-    "@react-native/babel-preset": 0.74.85
-    "@react-native/metro-config": 0.74.85
-    "@react-native/typescript-config": 0.74.85
-    babel-plugin-module-resolver: ^5.0.0
-    react: 18.2.0
-    react-native: 0.74.3
-  languageName: unknown
-  linkType: soft
-
-"react-native-thumbhash@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "react-native-thumbhash@workspace:."
-  dependencies:
-    "@commitlint/config-conventional": ^17.0.2
-    "@evilmartians/lefthook": ^1.5.0
-    "@react-native/eslint-config": ^0.73.1
-    "@release-it/conventional-changelog": ^5.0.0
-    "@types/jest": ^29.5.5
-    "@types/react": ^18.2.44
-    commitlint: ^17.0.2
-    del-cli: ^5.1.0
-    eslint: ^8.51.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-prettier: ^5.0.1
-    jest: ^29.7.0
-    prettier: ^3.0.3
-    react: 18.2.0
-    react-native: 0.74.3
-    react-native-builder-bob: ^0.26.0
-    release-it: ^15.0.0
-    turbo: ^1.10.7
-    typescript: ^5.2.2
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  languageName: unknown
-  linkType: soft
 
 "react-native@npm:0.74.3":
   version: 0.74.3

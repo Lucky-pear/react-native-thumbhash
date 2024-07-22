@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-thumbhash": ["./src/index"]
+      "@luckypear/react-native-thumbhash": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

@@ -1,2 +1,2 @@
-export { default as ThumbhashView } from './ThumbhashViewNativeComponent';
+export { default as Thumbhash } from './ThumbhashViewNativeComponent';
 export * from './ThumbhashViewNativeComponent';

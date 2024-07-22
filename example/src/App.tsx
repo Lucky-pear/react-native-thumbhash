@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
-import { ThumbhashView } from 'react-native-thumbhash';
+import { Thumbhash } from '@luckypear/react-native-thumbhash';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ThumbhashView
+      <Thumbhash
         // thumbhash="#123456"
         thumbhash="3OcRJYB4d3h/iIeHeEh3eIhw+j2w"
         // thumbhash="3PcNNYSFeXh/d3eld0iHZoZgVwh2"
