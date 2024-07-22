@@ -18,6 +18,7 @@ public protocol ThumbhashViewDelegate {
 
 public final class ThumbhashView: UIView {
     @objc public var thumbhash: String?
+    @objc public var decodeAsync: Bool = false
 
     @objc public weak var delegate: ThumbhashViewDelegate?
 
@@ -66,7 +67,13 @@ public final class ThumbhashView: UIView {
     public final func finalizeUpdates() {
         let shouldReRender = self.shouldReRender()
         if shouldReRender {
-            renderThumbhash()
+            if decodeAsync {
+                DispatchQueue.global(qos: .userInteractive).async {
+                    self.renderThumbhash()
+                }
+            } else {
+                renderThumbhash()
+            }
         }
     }
 
@@ -94,6 +101,9 @@ public final class ThumbhashView: UIView {
     }
 
     private final func emitLoadErrorEvent(message: String?) {
+        if let message = message {
+            RCTDefaultLogFunction(.error, RCTLogSource.native, #file, #line as NSNumber, "ThumbhashView: \(message)")
+        }
         delegate?.thumbhashViewLoadDidError(message)
     }
 

@@ -61,6 +61,10 @@ class ThumbhashViewManager : ThumbhashViewManagerSpec<ThumbhashImageView>() {
     view.thumbhash = thumbhash
   }
 
+  @ReactProp(name = "decodeAsync", defaultBoolean = false)
+  override fun setDecodeAsync(view: ThumbhashImageView, decodeAsync: Boolean) {
+    view.decodeAsync = decodeAsync
+  }
   override fun onAfterUpdateTransaction(view: ThumbhashImageView) {
     super.onAfterUpdateTransaction(view)
     view.updateThumbhash()

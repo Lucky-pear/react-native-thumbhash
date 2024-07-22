@@ -3,6 +3,9 @@ package com.thumbhash
 import android.content.Context
 import android.graphics.Bitmap
 import android.util.Base64
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 internal class ThumbhashCache(private val _thumbhash: String?) {
@@ -30,6 +33,7 @@ internal class ThumbhashCache(private val _thumbhash: String?) {
 
 class ThumbhashImageView(context: Context): androidx.appcompat.widget.AppCompatImageView(context) {
   var thumbhash: String? = null
+  var decodeAsync = false
   var onLoadStart: (() -> Unit)? = null
   var onLoadEnd: (() -> Unit)? = null
   var onLoadError: ((String?) -> Unit)? = null
@@ -55,10 +59,17 @@ class ThumbhashImageView(context: Context): androidx.appcompat.widget.AppCompatI
     }
   }
 
+  @OptIn(DelicateCoroutinesApi::class)
   fun updateThumbhash() {
     val shouldReRender = this.shouldReRender()
     if (shouldReRender) {
-      renderThumbhash()
+      if(decodeAsync) {
+        GlobalScope.launch {
+          renderThumbhash()
+        }
+      } else {
+        renderThumbhash()
+      }
     }
   }
 

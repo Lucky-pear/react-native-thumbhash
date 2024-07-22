@@ -19,6 +19,15 @@ final class ThumbhashViewWrapper: UIView, ThumbhashViewDelegate {
             thumbhashView.thumbhash = newValue as String?
         }
     }
+    
+    @objc var decodeAsync: Bool {
+        get {
+            thumbhashView.decodeAsync
+        }
+        set {
+            thumbhashView.decodeAsync = newValue
+        }
+    }
 
     @objc var onLoadStart: RCTDirectEventBlock?
     @objc var onLoadEnd: RCTDirectEventBlock?
@@ -64,7 +73,6 @@ final class ThumbhashViewManager: RCTViewManager {
     override final func view() -> UIView! {
         return ThumbhashViewWrapper()
     }
-
 
     override static func requiresMainQueueSetup() -> Bool {
         return true
