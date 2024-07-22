@@ -1,6 +1,6 @@
 {
   "name": "@luckypear/react-native-thumbhash",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A very compact representation of an image placeholder for react native",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
