@@ -7,6 +7,13 @@ A very compact representation of an image placeholder for react native
 | Thumbhash is in not ready yet...🚧 A true release is coming soon.
 | You can only check that thumbhash renders correctly
 
+## Features
+
+- [x] thumbhash rendering (decoding)
+- [x] new arch/old arch support
+- [ ] async dencoding
+- [ ] thumbhash decoding
+
 ## Installation
 
 ```sh
@@ -39,4 +46,4 @@ Made with [create-react-native-library](https://github.com/callstack/react-nativ
 # Resources
 
 - [react-native-blurhash](https://github.com/mrousavy/react-native-blurhash). cloned many setting. thx!
-- [woltapp/blurhash of course](https://github.com/evanw/thumbhash). Thanks for great algorithm
+- [woltapp/blurhash](https://github.com/evanw/thumbhash). Thanks for great algorithm
