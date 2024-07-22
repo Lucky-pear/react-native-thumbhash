@@ -55,6 +55,8 @@ import { Thumbhash } from '@luckypear/react-native-thumbhash';
 - [x] new arch/old arch support
 - [x] async dencoding
 - [ ] thumbhash decoding
+- [ ] `resizeMode` support
+- [ ] `borderRadius` support
 
 ## Contributing
 
