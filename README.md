@@ -10,10 +10,7 @@ To know more about thumbhash click [here](https://github.com/evanw/thumbhash).
 
 I recommend you to have a pre-encoded thumbhash string and store it in your server. And when your server delivers an image, you can add thumbhash in your payload. You can now immediately show `<Thumbhash>` component before your `Image` component finishes loading.
 
-## This is BETA release
-
-> Thumbhash is still on development...🚧
-> you can check which features are supported at the moment
+<img width="50%" src="https://github.com/user-attachments/assets/b8efefa6-453e-4226-a976-7fffc86483fe" />
 
 ## Installation
 
