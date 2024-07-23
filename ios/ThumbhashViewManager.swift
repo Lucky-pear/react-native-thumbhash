@@ -28,6 +28,15 @@ final class ThumbhashViewWrapper: UIView, ThumbhashViewDelegate {
             thumbhashView.decodeAsync = newValue
         }
     }
+    
+    @objc var resizeMode: NSString {
+        get {
+            convertContentMode(resizeMode: thumbhashView.contentMode)
+        }
+        set {
+            thumbhashView.contentMode = convertResizeMode(resizeMode: newValue)
+        }
+    }
 
     @objc var onLoadStart: RCTDirectEventBlock?
     @objc var onLoadEnd: RCTDirectEventBlock?
@@ -65,6 +74,32 @@ final class ThumbhashViewWrapper: UIView, ThumbhashViewDelegate {
 
     func thumbhashViewLoadDidError(_ message: String?) {
         onLoadError?(["message": message as Any])
+    }
+    
+    private final func convertResizeMode(resizeMode: NSString) -> ContentMode {
+        switch resizeMode {
+        case "contain":
+            return .scaleAspectFit
+        case "cover":
+            return .scaleAspectFill
+        case "stretch":
+            return .scaleToFill
+        default:
+            return .scaleAspectFill
+        }
+    }
+    
+    private final func convertContentMode(resizeMode: ContentMode) -> NSString {
+        switch resizeMode {
+        case .scaleAspectFit:
+            return "contain"
+        case .scaleAspectFill:
+            return "cover"
+        case .scaleToFill:
+            return "stretch"
+        default:
+            return "cover"
+        }
     }
 }
 

@@ -13,6 +13,11 @@ export interface ThumbhashProps extends Omit<ViewProps, 'children'> {
    * @default false
    */
   decodeAsync?: boolean;
+  /**
+   * Adjusts the resize mode of the image.
+   * @default 'cover'
+   */
+  resizeMode?: 'cover' | 'contain' | 'stretch';
 
   /**
    * Emitted when the Thumbhash received new parameters and started to decode the given `thumbhash` string.

@@ -63,6 +63,14 @@ The `<Blurhash>` component has the following properties:
     <td><code>false</code></td>
   </tr>
   <tr>
+    <td><code>resizeMode</code></td>
+    <td><code>'cover' | 'contain' | 'stretch'</code></td>
+    <td>Sets the resize mode of the image. (<code>'repeat'</code>and <code>'center'</code> is not supported.)
+    <blockquote>See: <a href="https://reactnative.dev/docs/image#resizemode">Image::resizeMode</a></blockquote>
+    </td>
+    <td><code>'cover'</code></td>
+  </tr>
+  <tr>
     <td><code>onLoadStart</code></td>
     <td><code>() => void</code></td>
     <td>A callback to call when the Blurhash started to decode the given <code>blurhash</code> string.</td>
@@ -116,8 +124,7 @@ If you want to encode it in your react-native app, I recommend you a tip that yo
 - [x] new arch/old arch support
 - [x] async dencoding
 - [x] thumbhash encoding
-- [ ] `resizeMode` support
-- [ ] `borderRadius` support
+- [x] `resizeMode` support
 
 ## Contributing
 

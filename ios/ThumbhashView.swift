@@ -19,6 +19,14 @@ public protocol ThumbhashViewDelegate {
 public final class ThumbhashView: UIView {
     @objc public var thumbhash: String?
     @objc public var decodeAsync: Bool = false
+    @objc override public var contentMode: ContentMode {
+        get {
+            imageContainer.contentMode
+        }
+        set {
+            imageContainer.contentMode = newValue
+        }
+    }
 
     @objc public weak var delegate: ThumbhashViewDelegate?
 

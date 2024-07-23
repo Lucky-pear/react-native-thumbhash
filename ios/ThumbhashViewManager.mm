@@ -6,6 +6,7 @@
 
 RCT_EXPORT_VIEW_PROPERTY(thumbhash, NSString);
 RCT_EXPORT_VIEW_PROPERTY(decodeAsync, BOOL);
+RCT_EXPORT_VIEW_PROPERTY(resizeMode, NSString);
 
 RCT_EXPORT_VIEW_PROPERTY(onLoadStart, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onLoadEnd, RCTDirectEventBlock);
