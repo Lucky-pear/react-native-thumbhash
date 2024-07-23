@@ -89,9 +89,7 @@ class ThumbhashModule internal constructor(context: ReactApplicationContext) :
 
   override fun onHostPause() {}
 
-  override fun onHostDestroy() {
-//    BlurHashDecoder.clearCache()
-  }
+  override fun onHostDestroy() {}
 
   companion object {
     const val NAME = "ThumbhashModule"

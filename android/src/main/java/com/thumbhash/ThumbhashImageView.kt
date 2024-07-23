@@ -51,7 +51,11 @@ class ThumbhashImageView(context: Context): androidx.appcompat.widget.AppCompatI
       val image = ThumbHash.thumbHashToRGBA(byteArray)
       val bitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
       bitmap.copyPixelsFromBuffer(java.nio.ByteBuffer.wrap(image.rgba))
-      setImageBitmap(bitmap)
+      if (bitmap == null) {
+        throw Exception("The provided thumbhash string was invalid.")
+      }
+      _bitmap = bitmap;
+      setImageBitmap(_bitmap)
       onLoadEnd?.invoke()
     } catch (e: Exception) {
       setImageBitmap(null)

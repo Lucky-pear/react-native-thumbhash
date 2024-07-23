@@ -10,4 +10,5 @@ import com.facebook.react.uimanager.SimpleViewManager;
 public abstract class ThumbhashViewManagerSpec<T extends View> extends SimpleViewManager<T> {
   public abstract void setThumbhash(T view, @Nullable String value);
   public abstract void setDecodeAsync(T view, boolean value);
+  public abstract void setResizeMode(T view, @Nullable String value);
 }

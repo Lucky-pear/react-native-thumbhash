@@ -65,6 +65,13 @@ class ThumbhashViewManager : ThumbhashViewManagerSpec<ThumbhashImageView>() {
   override fun setDecodeAsync(view: ThumbhashImageView, decodeAsync: Boolean) {
     view.decodeAsync = decodeAsync
   }
+
+  @ReactProp(name = ViewProps.RESIZE_MODE)
+  override fun setResizeMode(view: ThumbhashImageView, resizeMode: String?) {
+    view.scaleType = parseResizeMode(resizeMode ?: "cover")
+    view.redraw()
+  }
+
   override fun onAfterUpdateTransaction(view: ThumbhashImageView) {
     super.onAfterUpdateTransaction(view)
     view.updateThumbhash()
@@ -104,5 +111,14 @@ class ThumbhashViewManager : ThumbhashViewManagerSpec<ThumbhashImageView>() {
 
   companion object {
     const val REACT_CLASS = "ThumbhashView"
+
+    fun parseResizeMode(resizeMode: String): ImageView.ScaleType {
+      return when (resizeMode) {
+        "contain" -> ImageView.ScaleType.FIT_CENTER
+        "cover" -> ImageView.ScaleType.CENTER_CROP
+        "stretch" -> ImageView.ScaleType.FIT_XY
+        else -> DEFAULT_RESIZE_MODE
+      }
+    }
   }
 }
