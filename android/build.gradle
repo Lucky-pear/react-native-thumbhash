@@ -119,7 +119,7 @@ dependencies {
 if (isNewArchitectureEnabled()) {
   react {
     jsRootDir = file("../src/")
-    libraryName = "ThumbhashView"
+    libraryName = "Thumbhash"
     codegenJavaPackageName = "com.thumbhash"
   }
 }

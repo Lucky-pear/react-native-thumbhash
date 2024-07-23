@@ -1,6 +1,51 @@
 package com.thumbhash;
 
+import android.graphics.Bitmap;
+
+import java.io.ByteArrayOutputStream;
+
 public final class ThumbHash {
+
+  public static byte[] bitmapToThumbHash(Bitmap image) {
+    int originalWidth = image.getWidth();
+    int originalHeight = image.getHeight();
+
+    int w = (int) Math.round(100.0 * originalWidth / Math.max(originalWidth, originalHeight));
+    int h = (int) Math.round(100.0 * originalHeight / Math.max(originalWidth, originalHeight));
+
+    // Scale the bitmap directly
+    Bitmap scaledBitmap = Bitmap.createScaledBitmap(image, w, h, true);
+
+    int[] pixels = new int[w * h];
+    scaledBitmap.getPixels(pixels, 0, w, 0, 0, w, h);
+    byte[] rgba = new byte[w * h * 4];
+
+    for (int i = 0; i < pixels.length; i++) {
+      int pixel = pixels[i];
+      int a = (pixel >> 24) & 0xff;
+      int r = (pixel >> 16) & 0xff;
+      int g = (pixel >> 8) & 0xff;
+      int b = pixel & 0xff;
+
+      // Convert from premultiplied to unpremultiplied alpha
+      if (a > 0 && a < 255) {
+        r = Math.min(255, r * 255 / a);
+        g = Math.min(255, g * 255 / a);
+        b = Math.min(255, b * 255 / a);
+      }
+
+      rgba[i * 4] = (byte) r;
+      rgba[i * 4 + 1] = (byte) g;
+      rgba[i * 4 + 2] = (byte) b;
+      rgba[i * 4 + 3] = (byte) a;
+    }
+
+    if (scaledBitmap != image) {
+      scaledBitmap.recycle(); // Free up the memory if we created a new bitmap
+    }
+
+    return rgbaToThumbHash(w, h, rgba);
+  }
   /**
    * Encodes an RGBA image to a ThumbHash. RGB should not be premultiplied by A.
    *

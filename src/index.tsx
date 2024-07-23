@@ -1,7 +1,7 @@
 import type { NativeSyntheticEvent, ViewProps } from 'react-native';
-import ThumbhashViewNativeComponent from './ThumbhashViewNativeComponent';
-import React from 'react';
+import NativeThumbhashView from './NativeThumbhashView';
 import NativeThumbhashModule from './NativeThumbhashModule';
+import React from 'react';
 
 export interface ThumbhashProps extends Omit<ViewProps, 'children'> {
   /**
@@ -66,7 +66,7 @@ export class Thumbhash extends React.PureComponent<ThumbhashProps> {
 
   render() {
     return (
-      <ThumbhashViewNativeComponent
+      <NativeThumbhashView
         {...this.props}
         onLoadStart={this._onLoadStart}
         onLoadEnd={this._onLoadEnd}

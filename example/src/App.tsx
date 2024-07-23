@@ -5,7 +5,7 @@ export default function App() {
   const encode = async () => {
     console.log(
       await Thumbhash.encode(
-        'https://fastly.picsum.photos/id/928/200/200.jpg?hmac=5MQxbf-ANcu87ZaOn5sOEObpZ9PpJfrOImdC7yOkBlg'
+        'https://fastly.picsum.photos/id/335/200/200.jpg?hmac=CS4kiSEelfhSQQtW7j6SFUV2ZlTmUV1vaX2iZKnbx7c'
       )
     );
   };
@@ -13,8 +13,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Thumbhash
-        thumbhash="JQgSBwACeZlqeIiIeId4eIeJBwAAAAAA"
-        // thumbhash="3PcNNYSFeXh/d3eld0iHZoZgVwh2"
+        thumbhash="YQgKDwJKZnbDaHePdZhneXh3mT84d4AL"
         decodeAsync={true}
         style={styles.box}
       />
