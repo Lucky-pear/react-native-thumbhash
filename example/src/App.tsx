@@ -1,23 +1,33 @@
 import { Thumbhash } from '@luckypear/react-native-thumbhash';
-import { Button, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Button, Image, StyleSheet, View } from 'react-native';
 
 export default function App() {
-  const encode = async () => {
-    console.log(
-      await Thumbhash.encode(
-        'https://fastly.picsum.photos/id/335/200/200.jpg?hmac=CS4kiSEelfhSQQtW7j6SFUV2ZlTmUV1vaX2iZKnbx7c'
-      )
-    );
+  const [uri, setUri] = useState<string>(`https://picsum.photos/id/46/400`);
+  const [thumbhash, setThumbhash] = useState<string>(
+    'pOcRPwx4h4iPiHiDiFd4h4eKhgdoeIAG'
+  );
+
+  useEffect(() => {
+    if (uri) {
+      Thumbhash.encode(uri).then(setThumbhash);
+    }
+  }, [thumbhash, uri]);
+
+  const setRandomImageUri = () => {
+    setUri(`https://picsum.photos/seed/${Math.random()}/400`);
   };
 
   return (
     <View style={styles.container}>
-      <Thumbhash
-        thumbhash="YQgKDwJKZnbDaHePdZhneXh3mT84d4AL"
-        decodeAsync={true}
+      <Thumbhash thumbhash={thumbhash} decodeAsync={true} style={styles.box} />
+      <Image
+        source={{
+          uri,
+        }}
         style={styles.box}
       />
-      <Button title="encode" onPress={encode} />
+      <Button title="set random image" onPress={setRandomImageUri} />
     </View>
   );
 }
