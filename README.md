@@ -41,7 +41,56 @@ no extra steps are needed
 
 ## Usage
 
-```js
+The `<Blurhash>` component has the following properties:
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Explanation</th>
+    <th>Default Value</th>
+  </td>
+  <tr>
+    <td><code>blurhash</code></td>
+    <td><code>string</code></td>
+    <td>The thumbhash string to use. Example: <code>3OcRJYB4d3h/iIeHeEh3eIhw+j2w</code></td>
+    <td>*Required</td>
+  </tr>
+  <tr>
+    <td><code>decodeAsync</code></td>
+    <td><code>boolean</code></td>
+    <td>Asynchronously decode the thumbhash on a background Thread instead of the UI-Thread.</td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>onLoadStart</code></td>
+    <td><code>() => void</code></td>
+    <td>A callback to call when the Blurhash started to decode the given <code>blurhash</code> string.</td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
+    <td><code>onLoadEnd</code></td>
+    <td><code>() => void</code></td>
+    <td>A callback to call when the Blurhash successfully decoded the given <code>blurhash</code> string and rendered the image to the <code>&lt;Blurhash&gt;</code> view.</td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
+    <td><code>onLoadError</code></td>
+    <td><code>(message?: string) => void</code></td>
+    <td>A callback to call when the Blurhash failed to load. Use the <code>message</code> parameter to get the error message.</td>
+    <td><code>undefined</code></td>
+  </tr>
+  <tr>
+    <td>All <code>View</code> props</td>
+    <td><code>ViewProps</code></td>
+    <td>All properties from the React Native <code>View</code></td>
+    <td><code>undefined</code></td>
+  </tr>
+</table>
+
+Example
+
+```tsx
 import { Thumbhash } from '@luckypear/react-native-thumbhash';
 
 // ...
@@ -49,12 +98,24 @@ import { Thumbhash } from '@luckypear/react-native-thumbhash';
 <Thumbhash thumbhash="3OcRJYB4d3h/iIeHeEh3eIhw+j2w" />;
 ```
 
+### Encoding
+
+You can encode with this library and generate your thumbhash in your app.
+
+```ts
+const thumbhash = await Thumbhash.encode('https://picsum.photos/200');
+```
+
+encode method `loads image via react-native image loader`, and `scales it` and `encodes it` in to a thumbhash string. And this means it is a time taking task so you should be aware of using it.
+
+If you want to encode it in your react-native app, I recommend you a tip that you can use thumbhash string to file name that you will set to server (presigned url or cdn or whatever). then you can just make your own `Image` component to extract the file name(which is a thumbhash string) and display it before you load your image. this will save some bytes for your playload :)
+
 ## Features
 
 - [x] thumbhash rendering (decoding)
 - [x] new arch/old arch support
 - [x] async dencoding
-- [ ] thumbhash decoding
+- [x] thumbhash encoding
 - [ ] `resizeMode` support
 - [ ] `borderRadius` support
 
