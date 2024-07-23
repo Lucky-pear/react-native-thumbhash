@@ -2,7 +2,7 @@ import { Thumbhash } from '@luckypear/react-native-thumbhash';
 import { useEffect, useState } from 'react';
 import { Button, Image, StyleSheet, View } from 'react-native';
 
-const resizeMode = 'contain';
+const resizeMode = 'cover';
 
 export default function App() {
   const [uri, setUri] = useState<string>(`https://picsum.photos/id/46/300/200`);

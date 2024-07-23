@@ -125,7 +125,6 @@ If you want to encode it in your react-native app, I recommend you a tip that yo
 - [x] async dencoding
 - [x] thumbhash encoding
 - [x] `resizeMode` support
-- [ ] `borderRadius` support
 
 ## Contributing
 
