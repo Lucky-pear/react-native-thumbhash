@@ -1,6 +1,7 @@
 import type { NativeSyntheticEvent, ViewProps } from 'react-native';
 import ThumbhashViewNativeComponent from './ThumbhashViewNativeComponent';
 import React from 'react';
+import NativeThumbhashModule from './NativeThumbhashModule';
 
 export interface ThumbhashProps extends Omit<ViewProps, 'children'> {
   /**
@@ -37,6 +38,19 @@ export class Thumbhash extends React.PureComponent<ThumbhashProps> {
     this._onLoadStart = this._onLoadStart.bind(this);
     this._onLoadEnd = this._onLoadEnd.bind(this);
     this._onLoadError = this._onLoadError.bind(this);
+  }
+  /**
+   * Encodes the given image URI to a thumbhash string
+   * @param imageUri An URI of Image, parsed by react-native image loader.
+   * @example
+   * const thumbhash = await Thumbhash.encode('https://picsum.photos/200')
+   */
+  static encode(imageUri: string): Promise<string> {
+    if (typeof imageUri !== 'string') {
+      throw new Error('imageUri must be a non-empty string!');
+    }
+
+    return NativeThumbhashModule.encode(imageUri);
   }
 
   _onLoadStart() {
